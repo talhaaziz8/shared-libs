@@ -5,7 +5,7 @@ def call(string credId, string imagename){
                     usernameVariable: "dockerhubuser"
                 )]){
                     sh "docker login -u ${env.dockerhubuser} -p ${env.dockerhubpass}"
-                    sh "docker image tag "${imagename}" ${env.dockerhubuser}/${imagename}"
+                    sh "docker image tag ${imagename} ${env.dockerhubuser}/${imagename}"
                     sh "docker push ${env.dockerhubuser}/${imagename}:latest"
                 }
 }
